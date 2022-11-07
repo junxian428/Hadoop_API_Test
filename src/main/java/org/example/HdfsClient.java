@@ -41,4 +41,13 @@ public class HdfsClient {
         FileSystem fs = FileSystem.get(uri,configuration);
         fs.copyToLocalFile(false,new Path("hdfs://hadoop100/junxian428"),new Path("C:\\hello.png"),false);
     }
+
+    @Test
+    public void testDelete()  throws URISyntaxException, IOException, NullPointerException{
+        URI uri = new URI("hdfs://hadoop100:8020");
+        Configuration configuration = new Configuration();
+
+        FileSystem fs = FileSystem.get(uri,configuration);
+        fs.delete(new Path("/junxian428/MicrosoftTeams-image.png"),false);
+    }
 }
