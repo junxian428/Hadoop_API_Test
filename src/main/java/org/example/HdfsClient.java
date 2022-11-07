@@ -30,6 +30,15 @@ public class HdfsClient {
         Configuration configuration = new Configuration();
 
         FileSystem fs = FileSystem.get(uri,configuration);
-        fs.copyFromLocalFile(false,false, new Path("C:\\Users\\junxian428\\Downloads\\MicrosoftTeams-image.png"),new Path("hdfs://hadoop100/junxian428"));
+        fs.copyFromLocalFile(false,true, new Path("C:\\Users\\junxian428\\Downloads\\MicrosoftTeams-image.png"),new Path("hdfs://hadoop100/junxian428"));
+    }
+
+    @Test
+    public void testGet()  throws URISyntaxException, IOException, NullPointerException{
+        URI uri = new URI("hdfs://hadoop100:8020");
+        Configuration configuration = new Configuration();
+
+        FileSystem fs = FileSystem.get(uri,configuration);
+        fs.copyToLocalFile(false,new Path("hdfs://hadoop100/junxian428"),new Path("C:\\hello.png"),false);
     }
 }
